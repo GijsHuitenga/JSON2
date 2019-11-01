@@ -1,0 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.boekSelectie_cover {
+	max-width: 100px;
+}
+
+.boekSelectie_rij-accent {
+	background-color: #DDD;
+}
+
+.boekSelectie_data-cel {
+	padding: 1em;
+	vertical-align: top;
+}
+
+.boekSelectie_data-cel:nth-child(3) {
+	padding: 0;
+}
