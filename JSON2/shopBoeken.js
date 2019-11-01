@@ -22,20 +22,6 @@ const maakTabelKop = (arr) => {
 	return kop;
 }
 
-const maakTabelRij = (arr, accent) => {
-	let rij = "";
-	if(accent == true) {
-		rij = "<tr class='boekSelectie_rij-accent'>";
-	} else {
-		rij = "<tr class='boekSelectie_rij'>";
-	}
-	arr.forEach((item) => {
-		rij += "<td class='boekSelectie_data-cel'>" + item + "</td>";
-	});
-	rij += "</tr>";
-	return rij;
-}
-
 // functie die van een maand string een nummer maakt
 const geefMaandNummer = (maand) => {
 	let nummer;
@@ -104,41 +90,15 @@ let sorteerBoekObj = {
 
 	// data in een tabel uitvoeren
 	uitvoeren: function(data) {
-		let uitvoer = maakTabelKop(
-			["titel", 
-			"auteur(s)", 
-			"cover", 
-			"uitgave", 
-			"pagina's", 
-			"taal", 
-			"EAN",
-			"prijs",
-			"categorie"]);
-		for(let i = 0; i < data.length; i++) {
-			// geeft rijen afwisselend een accent mee
-			let accent = false;
-			i % 2 == 0 ? accent = true : accent = false;
-			let imgElement = 
-			"<img src='" 
-			+ data[i].cover + 
-			"' class='boekSelectie_cover' alt='" + 
-			data[i].titel + 
-			"'>";
-			// maak opsomming van de auteurs
-			let auteurs = maakOpsomming(data[i].auteur);
-			uitvoer += maakTabelRij(
-				[data[i].titel, 
-				auteurs, 
-				imgElement, 
-				data[i].uitgave, 
-				data[i].paginas, 
-				data[i].taal, 
-				data[i].ean,
-				data[i].prijs,
-				data[i].categorie], accent);
-		}
+        data.forEach(boek => {
+            let sectie = document.createElement('section');
+            sectie.className = 'boek';
 
-		document.getElementById('uitvoer').innerHTML = uitvoer;
+            // boek cover
+            let image = documen.createElement('img');
+            image.className = 'boek__cover';
+            image.setAttribute('src', boek.cover)
+        });        
 	}
 }
 
