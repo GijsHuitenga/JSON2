@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+/* sections layout */
+.boek {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-gap: 1em;
+	margin-bottom: 1em;
+}
+
+.boek:nth-child(even) {
+	background-color: #EEE;
+}
+
+.boek__main {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	padding: .5em 0;
+}
+
+/* boek opmaak */
+.boek__cover {
+	max-width: 100px;
+}
+
+.boek__titel {
+	margin: 0;
+}
+
+.boek__overige {
+	margin: 0;
+	font-size: .8em;
+	color: #555;
+}
+
+.boek__prijs {
+	font-size: 1.5em;
+}
+
+.boek__rij--accent {
+	background-color: #DDD;
+}
+
+.boek__data--cel {
+	padding: 1em;
+	vertical-align: top;
+}
+
+.boek__data--cel:nth-child(3) {
+	padding: 0;
+}
+
+@media screen and (min-width: 60em) {
+	#uitvoer {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 2em;
+	}
+	.boek:nth-child(even) {
+		background-color: inherit;
+	}
+	.boek:nth-child(4n+2),
+	.boek:nth-child(4n+3) {
+		background-color: #EEE;
+	}
+}
+
+@media screen and (min-width: 100vw) {
+	#uitvoer {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 2em;
+	}
+	.boek:nth-child(even) {
+		background-color: inherit;
+	}
+	.boek:nth-child(2n+1) {
+		background-color: #EEE;
+	}
+}
