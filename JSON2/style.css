@@ -5,19 +5,32 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-.boekSelectie_cover {
+/* sections layout */
+.boek {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-gap: 1em;
+	margin-bottom: 1em;
+}
+
+/* boek opmaak */
+.boek__cover {
 	max-width: 100px;
 }
 
-.boekSelectie_rij-accent {
+.boek__prijs {
+	font-size: 1.5em;
+}
+
+.boek__rij--accent {
 	background-color: #DDD;
 }
 
-.boekSelectie_data-cel {
+.boek__data--cel {
 	padding: 1em;
 	vertical-align: top;
 }
 
-.boekSelectie_data-cel:nth-child(3) {
+.boek__data--cel:nth-child(3) {
 	padding: 0;
 }

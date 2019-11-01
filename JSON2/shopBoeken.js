@@ -14,7 +14,7 @@ xmlhttp.send();
 
 // een tabel kop in markup uitvoeren uit een array
 const maakTabelKop = (arr) => {
-	let kop = "<table class='boekSelectie'><tr>";
+	let kop = "<table class='boek'><tr>";
 	arr.forEach((item) => {
 		kop += "<th>" + item + "</th>";
 	});
@@ -63,6 +63,15 @@ const maakOpsomming = (array) => {
 	return string;
 }
 
+//  'De' vooraan de tekst
+const switchtTekst = (string) => {
+    if(string.indexOf(',') != -1) {
+        let array = string.split(',');
+        string = array[1] + ' ' + array[0];
+    }
+    return string;
+}
+
 // object dat de boeken uitvoert en ook sorteert
 // eigenschappen: data (sorteer)kenmerk
 // methods: sorteren() en uitvoeren()
@@ -90,14 +99,39 @@ let sorteerBoekObj = {
 
 	// data in een tabel uitvoeren
 	uitvoeren: function(data) {
+        // uitvoer legen
+        document.getElementById('uitvoer').innerHTML = "";
+
         data.forEach(boek => {
             let sectie = document.createElement('section');
             sectie.className = 'boek';
 
+            // main element
+            let main = document.createElement('main');
+            main.className = 'boek__main';
+
             // boek cover
-            let image = documen.createElement('img');
+            let image = document.createElement('img');
             image.className = 'boek__cover';
-            image.setAttribute('src', boek.cover)
+            image.setAttribute('src', boek.cover);
+            image.setAttribute('alt', switchtTekst(boek.titel));
+            
+            // titel
+            let titel = document.createElement('h3');
+            titel.className = 'boek__titel';
+            titel.textContent = switchtTekst(boek.titel);
+
+            // prijs toevoegen
+            let prijs = document.createElement('div');
+            prijs.className = 'boek__prijs';
+            prijs.textContent = '€ ' + boek.prijs;
+
+            // elementen toevoegen
+            sectie.appendChild(image);
+            sectie.appendChild(main);
+            main.appendChild(titel);
+            sectie.appendChild(prijs);
+            document.getElementById('uitvoer').appendChild(sectie);
         });        
 	}
 }
