@@ -1,0 +1,123 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.winkelwagen {
+	width: 3.7em;
+	height: 3em;
+	background-image: url('img/winkelwagen.png');
+	background-size: contain;
+	float: right;
+	margin-right: 2em;
+	cursor: pointer;
+}
+
+.winkelwagen__aantal:not(:empty) {
+	background-color: #f00;
+	display: inline-block;
+	color: #fff;
+	position: relative;
+	top: -.3em;
+	right: -2.7em;
+	line-height: .5em;
+	padding: .5em;
+	border-radius: 50%;
+}
+
+/* sections layout */
+.boek {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-gap: 1em;
+	margin-bottom: 1em;
+	padding: .5em;
+}
+
+.boek:nth-child(even) {
+	background-color: #EEE;
+}
+
+.boek__main {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	padding: .5em 0;
+}
+
+/* boek opmaak */
+.boek__cover {
+	max-width: 100px;
+}
+
+.boek__titel {
+	margin: 0;
+}
+
+.boek__overige {
+	margin: 0;
+	font-size: .8em;
+	color: #555;
+}
+
+.boek__prijs {
+	font-size: 1.5em;
+}
+
+.boek__knop {
+	display: block;
+	margin: 1.5em auto;
+	padding: .7em;
+	border-radius: 1em;
+	background-color: #d00;
+	color: #fff;
+	cursor: pointer;
+	transition: .1s ease-out;
+}
+
+.boek__knop:hover {
+	background-color: #900;
+}
+
+.boek__rij--accent {
+	background-color: #DDD;
+}
+
+.boek__data--cel {
+	padding: 1em;
+	vertical-align: top;
+}
+
+.boek__data--cel:nth-child(3) {
+	padding: 0;
+}
+
+@media screen and (min-width: 60em) {
+	#uitvoer {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 2em;
+	}
+	.boek:nth-child(even) {
+		background-color: inherit;
+	}
+	.boek:nth-child(4n+2),
+	.boek:nth-child(4n+3) {
+		background-color: #EEE;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	#uitvoer {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 2em;
+	}
+	.boek:nth-child(even) {
+		background-color: inherit;
+	}
+	.boek:nth-child(2n+1) {
+		background-color: #EEE;
+	}
+}
