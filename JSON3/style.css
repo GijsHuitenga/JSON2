@@ -27,6 +27,16 @@ body {
 	border-radius: 50%;
 }
 
+.backIndex {
+	width: 3em;
+	height: 3em;
+	background-image: url('img/pijl-links.png');
+	background-size: contain;
+	float: right;
+	margin-right: 2em;
+	cursor: pointer;
+}
+
 /* sections layout */
 .boek {
 	display: grid;
@@ -93,6 +103,44 @@ body {
 	padding: 0;
 }
 
+/* Selectie boek layout winkelwagen */
+.selectie {
+	display: grid;
+	grid-template-columns: auto 1fr auto auto;
+	grid-gap: 2em;
+	margin-bottom: .5em;
+}
+
+/* Selectie boek opmaak winkelwagen */
+.selectie__cover {
+	max-width: 60px;
+}
+
+.selectie__titel {
+	font-weight: normal;
+	font-size: 1em;
+	margin: 0;
+}
+
+.selectie__prijs {
+	font-size: 1.5em;
+}
+
+.selectie__verwijder {
+	width: 2em;
+	height: 2em;
+	background-image: url('img/verwijder.png');
+	background-size: cover;
+	cursor: pointer;
+	border-radius: 50%;
+	transition: .1s ease-out;
+}
+
+.selectie__verwijder:hover {
+	background-color: #d00;
+}
+
+/* Media query 2 kolommen boek */
 @media screen and (min-width: 60em) {
 	#uitvoer {
 		display: grid;
@@ -108,6 +156,7 @@ body {
 	}
 }
 
+/* Media query 3 kolommen boek */
 @media screen and (min-width: 1300px) {
 	#uitvoer {
 		display: grid;
@@ -119,5 +168,14 @@ body {
 	}
 	.boek:nth-child(2n+1) {
 		background-color: #EEE;
+	}
+}
+
+/* Media query selectie */
+@media screen and (min-width: 40em) {
+	.selectie {
+		max-width: 40em;
+		margin: 0 auto;
+		margin-bottom: .5em;
 	}
 }
